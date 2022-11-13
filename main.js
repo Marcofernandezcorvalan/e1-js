@@ -42,12 +42,12 @@ const pizzas = [
 console.log('a)')
 
 const pizzasConIdPar = pizzas.filter((pizzas) => {
-    return pizzas.id % 2 === 0;
+    return pizzas.id % 3 === 0;
 
 });
 
 pizzasConIdPar.forEach((pizzas) => {
-    console.log(`La pizza ${pizzas.nombre} contiene id par`);
+    console.log(`La pizza ${pizzas.nombre} contiene id impar`);
 });
 
 
