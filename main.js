@@ -42,7 +42,7 @@ const pizzas = [
 console.log('a)')
 
 const pizzasConIdPar = pizzas.filter((pizzas) => {
-    return pizzas.id % 3 === 0;
+    return pizzas.id % 2 == 1;
 
 });
 
