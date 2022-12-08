@@ -95,3 +95,66 @@ const ingredientesDeCadaPizza = pizzas.filter((pizzas) => {
 ingredientesDeCadaPizza.forEach((pizzas) => {
     console.log(`La ${pizzas.nombre} contiene ${pizzas.ingredientes}`);
 })
+
+
+
+
+
+// E2 
+
+// llamar
+const form = document.querySelector(".form");
+const numberInput = document.querySelector(".form--input");
+const btn = document.querySelector("form--btn");
+
+
+const checkNumber = () => {
+    let valid = false; 
+
+    const numberValue = numberInput.value;
+
+    if (estaVacio(numberValue)) {
+        return mostrarError(numberInput, "Poner un numero es obligatorio");
+    }else if (!esNumValido(numberValue)) {
+        return mostrarError(numberInput, "Solo numeros del 1 al 6");
+    }else {
+        limpiarError(numberInput)
+        valid = true;
+    }
+    return valid;
+};
+
+form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+    checkNumber();
+})
+
+// utils
+const estaVacio = (value) => {
+    return !value.length
+};
+
+const mostrarError = (input, message) => {
+    const formField = input.parentElement;
+    formField.classList.add("error");
+    const error = formField.querySelector("small");
+    error.textContent = message;
+};
+
+// Lo más complicado.
+
+const pizzaCoinci = () => {
+
+}
+
+const limpiarError = (input) => {
+    const formField = input.parentElement;
+    formField.classList.remove("error");
+    const error = formField.querySelector("small");
+    error.textContent = "";
+};
+
+const esNumValido = (number) => {
+    const re = /^[1-6]$/;
+    return re.test(number);
+};
