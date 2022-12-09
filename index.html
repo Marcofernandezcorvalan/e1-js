@@ -8,16 +8,21 @@
     <title>Document</title>
   </head>
   <body>
-    <form class="form">
-      <div class="form__container">
-        <label for="num">Ingrese su número correspondiente</label>
-        <input class="form--input" type="number" id="num" />
-        <small class="small"></small>
-      </div>
+    <main>
+      <form class="form">
+        <h2 class="form__title">Ingrese el ID correspondiente</h2>
+        <div class="form__container">
+          <input class="form--input" type="number" id="number" placeholder="" />
+          <small class="small"></small>
+        </div>
+        <div class="render">
+          <h2 class="render__pizza"></h2>
+          <h3 class="render__precio"></h3>
+        </div>
+        <button class="form--btn">Check</button>
+      </form>
+    </main>
 
-      <button class="form--btn">Click Aquí</button>
-    </form>
-    <div class="render"></div>
     <script src="main.js"></script>
   </body>
 </html>
