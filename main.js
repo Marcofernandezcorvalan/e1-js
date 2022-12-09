@@ -100,7 +100,7 @@ ingredientesDeCadaPizza.forEach((pizzas) => {
 
 
 
-// E2 
+// ENTREGA 2
 
 // llamar
 const form = document.querySelector(".form");
@@ -108,7 +108,7 @@ const numberInput = document.querySelector(".form--input");
 const btn = document.querySelector("form--btn");
 
 
-
+//CHEQUEO DE NUM.
 const checkNumber = () => {
     let valid = false; 
 
@@ -119,43 +119,66 @@ const checkNumber = () => {
     }else if (!esNumValido(numberValue)) {
         return mostrarError(numberInput, "Solo numeros del 1 al 6");
     }else {
+        pizzaCoinci(numberValue)
         limpiarError(numberInput)
         valid = true;
     }
     return valid;
 };
 
-form.addEventListener("submit", (e)=> {
-    e.preventDefault();
-    checkNumber();
-})
+
 
 // utils
+
+// ESTÁ VACIO
 const estaVacio = (value) => {
     return !value.length
 };
 
+// MOSTRAR ERROR
 const mostrarError = (input, message) => {
     const formField = input.parentElement;
     formField.classList.add("error");
+    formField.classList.remove("bien")
     const error = formField.querySelector("small");
     error.textContent = message;
+    const pizzaName = document.querySelector('.render__pizza');
+    pizzaName.textContent = "";
+    const precio = document.querySelector('.render__precio');
+    precio.textContent = "";
 };
 
-// Lo más complicado.
+// PIZZA COINCIDENTE
+const pizzaCoinci = (value) => {
+    const pizzaName = document.querySelector('.render__pizza');
+    const precio = document.querySelector('.render__precio');
 
-const pizzaCoinci = () => {
+    pizzas.forEach((pizza) => {
+        if (pizza.id == value) {
+            pizzaName.textContent = pizza.nombre;
+            precio.textContent = `$${pizza.precio}`;
+        };
+    });
+};
 
-}
-
+// LIMPIAR ERROR
 const limpiarError = (input) => {
     const formField = input.parentElement;
     formField.classList.remove("error");
+    formField.classList.add("bien")
     const error = formField.querySelector("small");
     error.textContent = "";
 };
 
+// EL NUMERO ES VÁLIDO
 const esNumValido = (number) => {
     const re = /^[1-6]$/;
     return re.test(number);
 };
+
+//SUBMIT
+form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+    checkNumber();
+    form.reset()
+})

@@ -82,15 +82,35 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
-.error.form--input {
+.error .form--input {
     border: 1px solid red ;
+}
+
+.bien .form--input {
+    border: 1px solid var(--thirdtext);
 }
 
 .small {
     color: red;
     text-align: center;
-    /* padding: 5px; */
-    font-size: 10px;
+    font-size: 12px;
+}
+
+.render {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.render__pizza {
+    font-size: 20px;
+    color: var(--thirdtext);
+}
+
+.render__precio {
+    font-size: 20px;
+    color: var(--thirdtext);
 }
 
 .form--btn {
